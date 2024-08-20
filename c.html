@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Toggle Example</title>
+    <style>
+        /* Center the content in the middle of the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image:url(https://static.vecteezy.com/system/resources/previews/007/622/546/non_2x/banner-template-design-abstract-black-and-white-geometric-squares-overlapping-layer-on-clean-background-vector.jpg);
+background-size:cover;
+        }
+
+        /* Wrapper for the container and button */
+        .wrapper {
+            text-align: center;
+        }
+
+        /* Initial styling for the container */
+        .container {
+            width: 300px;
+            height: 200px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000;
+            margin: 0 auto;
+            transition: background-color 0.3s;
+        }
+
+        /* Text inside the container */
+        .container p {
+            font-size: 24px;
+            color: #000;
+            transition: color 0.3s;
+        }
+
+        /* Styling the button */
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <p id="text">Initial Text</p>
+        </div>
+        <button id="toggleButton">Click Me</button>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const textElement = document.getElementById('text');
+        const button = document.getElementById('toggleButton');
+
+        let isInitialState = true;
+
+        button.addEventListener('click', () => {
+            if (isInitialState) {
+                // Change to new state
+                container.style.backgroundColor = 'lightcoral';
+                textElement.textContent = 'Changed Text';
+                textElement.style.color = '#fff';
+                button.textContent = 'Revert';
+            } else {
+                // Revert to initial state
+                container.style.backgroundColor = 'lightblue';
+                textElement.textContent = 'Initial Text';
+                textElement.style.color = '#000';
+                button.textContent = 'Click Me';
+            }
+
+            isInitialState = !isInitialState;
+        });
+    </script>
+
+</body>
+</html>
